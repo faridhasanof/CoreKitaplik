@@ -1,0 +1,27 @@
+﻿@model List<CoreKitaplik.Models.Kitablar>
+@*@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KITAB ADI</th>
+        <th>YAZAR</th>
+    </tr>
+    @foreach (var K in Model)
+    {
+        <tr>
+            <td>@K.ID</td>
+            <td>@K.KitabAd</td>
+            <td>@K.Yazar</td>
+        </tr>
+    }
+
+</table>
+<h2> Sonraki Kitablar</h2>
+@await Component.InvokeAsync("YeniKitaplar")
+<br />
+@Html.Partial("_PartialPage")
+
